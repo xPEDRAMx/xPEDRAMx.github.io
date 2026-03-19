@@ -18,13 +18,13 @@ import os
 import subprocess
 import tempfile
 
-INPUT  = "/Users/pedrambeigi/xPEDRAMx.github.io/assets/images/test.mp4"
+INPUT  = "/Users/pedrambeigi/xPEDRAMx.github.io/assets/images/test.mov"
 OUTPUT = "/Users/pedrambeigi/xPEDRAMx.github.io/assets/images/test_processed.mp4"
 
 # Target: exact website background #1b1035 (RGB 27,16,53) measured from screenshot.
 # Pre-compensated for yuv420p H.264 encoding drift (~R-3, G+1, B-4):
 # write RGB(30, 15, 57) → encoded output lands on RGB(27, 16, 53) = #1b1035
-TARGET_COLOR_BGR = (57, 18, 31)   # BGR for OpenCV
+TARGET_COLOR_BGR = (35, 10, 15)   # BGR for OpenCV
 
 # Any pixel where ALL three channels are below this value → replaced
 # 60 catches near-black and very dark colours, not just pure black
