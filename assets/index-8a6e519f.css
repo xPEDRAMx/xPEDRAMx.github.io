@@ -13,6 +13,10 @@
 .btn-outline-download-cv{border:1px solid #fff;color:#fff;background:transparent;}
 .btn-outline-download-cv:hover{background:#fff;color:#000;}
 
+/* Hero typewriter cursor blink */
+.type-cursor{display:inline-block;animation:cursor-blink 1s steps(1,end) infinite;}
+@keyframes cursor-blink{0%,49%{opacity:1}50%,100%{opacity:0}}
+
 /* Compact hero CTAs (~15% smaller) */
 .btn-cta-compact{padding:.43rem .85rem;font-size:.765rem;line-height:1rem;}
 .btn-cta-compact svg{width:.85rem;height:.85rem;}
