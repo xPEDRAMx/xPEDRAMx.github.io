@@ -9,3 +9,10 @@
 .btn-outline-linkedin{border:1px solid #0A66C2;color:#0A66C2;background:transparent;}
 .btn-outline-linkedin:hover{background:#0A66C2;color:#07111f;}
 .btn-outline-linkedin:focus-visible{outline:2px solid rgba(10,102,194,.45);outline-offset:2px;}
+/* Download CV button explicit hover contrast */
+.btn-outline-download-cv{border:1px solid #fff;color:#fff;background:transparent;}
+.btn-outline-download-cv:hover{background:#fff;color:#000;}
+
+/* Compact hero CTAs (~15% smaller) */
+.btn-cta-compact{padding:.43rem .85rem;font-size:.765rem;line-height:1rem;}
+.btn-cta-compact svg{width:.85rem;height:.85rem;}
