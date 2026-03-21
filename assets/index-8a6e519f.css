@@ -43,7 +43,7 @@
 
 /* Hero media: reduce size on mobile only (~30%) */
 @media (max-width:639px){
-  .hero-main-media{width:185px !important;height:185px !important;}
+  .hero-main-media{width:193px !important;height:193px !important;}
 }
 
 /* Hero mobile spacing tweaks (~30% tighter) */
@@ -66,4 +66,55 @@
   section[aria-label="Experience"] .bg-ele-dark\/50 span.text-ele-pink.text-sm.font-semibold{font-size:.75rem !important;line-height:1rem !important;}
   section[aria-label="Experience"] .bg-ele-dark\/50 span.text-xs,
   section[aria-label="Publications"] .bg-ele-dark\/50 a.text-sm{font-size:.75rem !important;line-height:1rem !important;}
+}
+
+/* Hero: “Scroll Down” cue — light gray text + arrow, spacing from CTAs (mobile) */
+.hero-scroll-hint{
+  color:#a8b0bc !important;
+  text-decoration:none;
+  -webkit-tap-highlight-color:transparent;
+}
+.hero-scroll-hint p{
+  color:#a8b0bc !important;
+  font-size:0.52rem !important;
+  line-height:1rem !important;
+  letter-spacing:0.18em !important;
+}
+.hero-scroll-hint svg,
+.hero-scroll-hint .hero-scroll-hint-arrow{
+  color:#a8b0bc !important;
+  fill:currentColor;
+  stroke:currentColor;
+}
+.hero-scroll-hint:focus-visible{outline:2px solid rgba(247,37,133,.45);outline-offset:4px;border-radius:6px;}
+.hero-scroll-hint-arrow{animation:hero-scroll-bounce 1.6s ease-in-out infinite;}
+@keyframes hero-scroll-bounce{0%,100%{transform:translateY(0);opacity:.88}50%{transform:translateY(7px);opacity:1}}
+#about{scroll-margin-top:5.5rem;}
+
+@media (max-width:639px){
+  /* Space below CTAs before the pinned hint (hint is position:fixed so it doesn’t reserve layout) */
+  .hero-cta-mobile-grid{margin-bottom:1.25rem !important;}
+  section[data-section="hero"] .hero-main-layout>.flex-1:first-child{
+    padding-bottom:5.25rem !important;
+  }
+  .hero-scroll-hint{
+    position:fixed;
+    left:0;
+    right:0;
+    bottom:max(0.75rem, calc(env(safe-area-inset-bottom, 0px) + 3.25rem));
+    z-index:35;
+    margin-top:0 !important;
+    padding-top:2.5rem !important;
+    padding-bottom:0.5rem !important;
+    pointer-events:auto;
+    transition:opacity .28s ease, visibility .28s ease, transform .28s ease;
+    gap:0.35rem;
+  }
+  .hero-scroll-hint.hero-scroll-hint--away{
+    opacity:0 !important;
+    visibility:hidden !important;
+    pointer-events:none !important;
+    transform:translateY(10px);
+    z-index:0 !important;
+  }
 }
