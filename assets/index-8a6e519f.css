@@ -20,3 +20,32 @@
 /* Compact hero CTAs (~15% smaller) */
 .btn-cta-compact{padding:.43rem .85rem;font-size:.765rem;line-height:1rem;}
 .btn-cta-compact svg{width:.85rem;height:.85rem;}
+
+/* Hero CTAs: mobile 2x2 centered without stretching button widths */
+.hero-cta-mobile-grid{display:flex;flex-wrap:wrap;gap:.75rem;}
+@media (max-width:639px){
+  .hero-cta-mobile-grid{display:grid;grid-template-columns:max-content max-content;justify-content:center;column-gap:.75rem;row-gap:.75rem;}
+  .hero-cta-mobile-grid>a{justify-self:center;}
+  .hero-cta-mobile-grid>a{
+    min-height:2rem;
+    padding:.43rem .85rem;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .hero-cta-mobile-grid>a svg{
+    width:.85rem !important;
+    height:.85rem !important;
+  }
+}
+
+/* Hero media: reduce size on mobile only (~30%) */
+@media (max-width:639px){
+  .hero-main-media{width:218px !important;height:218px !important;}
+}
+
+/* Hero mobile spacing tweaks (~30% tighter) */
+@media (max-width:639px){
+  .hero-mobile-spacing{padding-top:1.62rem !important;padding-bottom:1.62rem !important;}
+  .hero-main-layout{gap:1rem !important;}
+}
