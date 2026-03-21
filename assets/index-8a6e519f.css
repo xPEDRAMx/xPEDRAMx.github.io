@@ -25,8 +25,10 @@
 .hero-cta-mobile-grid{display:flex;flex-wrap:wrap;gap:.75rem;}
 @media (max-width:639px){
   .hero-cta-mobile-grid{display:grid;grid-template-columns:max-content max-content;justify-content:center;column-gap:.75rem;row-gap:.75rem;}
+  .hero-cta-mobile-grid{width:100%;justify-items:center;place-content:center;}
   .hero-cta-mobile-grid>a{justify-self:center;}
   .hero-cta-mobile-grid>a{
+    width:8.2rem;
     min-height:2rem;
     padding:.43rem .85rem;
     display:inline-flex;
@@ -41,11 +43,27 @@
 
 /* Hero media: reduce size on mobile only (~30%) */
 @media (max-width:639px){
-  .hero-main-media{width:218px !important;height:218px !important;}
+  .hero-main-media{width:185px !important;height:185px !important;}
 }
 
 /* Hero mobile spacing tweaks (~30% tighter) */
 @media (max-width:639px){
-  .hero-mobile-spacing{padding-top:1.62rem !important;padding-bottom:1.62rem !important;}
+  .hero-mobile-spacing{padding-top:1.3rem !important;padding-bottom:1.62rem !important;}
   .hero-main-layout{gap:1rem !important;}
+  .hero-mobile-spacing{align-items:flex-start !important;}
+  .hero-mobile-spacing{justify-content:flex-start !important;}
+  .hero-main-layout>.flex-1{flex:0 0 auto !important;}
+}
+
+/* Main page cards on mobile: slightly smaller Experience/Publications typography */
+@media (max-width:639px){
+  section[aria-label="Experience"] .bg-ele-dark\/50 h3,
+  section[aria-label="Publications"] .bg-ele-dark\/50 h3{font-size:1.25rem !important;line-height:1.55rem !important;}
+  section[aria-label="Experience"] .bg-ele-dark\/50 h4,
+  section[aria-label="Publications"] .bg-ele-dark\/50 h4{font-size:1rem !important;line-height:1.4rem !important;}
+  section[aria-label="Experience"] .bg-ele-dark\/50 p,
+  section[aria-label="Publications"] .bg-ele-dark\/50 p{font-size:.875rem !important;line-height:1.35rem !important;}
+  section[aria-label="Experience"] .bg-ele-dark\/50 span.text-ele-pink.text-sm.font-semibold{font-size:.75rem !important;line-height:1rem !important;}
+  section[aria-label="Experience"] .bg-ele-dark\/50 span.text-xs,
+  section[aria-label="Publications"] .bg-ele-dark\/50 a.text-sm{font-size:.75rem !important;line-height:1rem !important;}
 }
