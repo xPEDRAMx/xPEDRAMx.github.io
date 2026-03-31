@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Peter (Pedram) Beigi - Resume</title>
+    <style>
+      :root {
+        --bg: #f1f5f9;
+        --surface: #ffffff;
+        --text: #1e293b;
+        --muted: #475569;
+        --divider: #cbd5e1;
+        --accent: #f72585;
+      }
+
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.5;
+      }
+
+      .wrap {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px 20px 40px;
+      }
+
+      .print-btn {
+        position: sticky;
+        top: 14px;
+        margin-left: auto;
+        display: inline-block;
+        border: 1px solid #0f172a;
+        border-radius: 999px;
+        background: #0f172a;
+        color: #fff;
+        padding: 8px 13px;
+        font-size: 11px;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        font-weight: 600;
+        cursor: pointer;
+      }
+
+      .card {
+        margin-top: 12px;
+        background: var(--surface);
+        border: 1px solid var(--divider);
+        border-radius: 14px;
+        padding: 30px 34px 24px;
+        box-shadow: 0 10px 20px rgba(15, 23, 42, 0.08);
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 36px;
+        letter-spacing: -0.02em;
+      }
+      .headline {
+        margin-top: 5px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+      .contact {
+        margin-top: 12px;
+        font-size: 12px;
+        color: var(--muted);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 9px;
+      }
+      .contact a { color: var(--muted); text-decoration: none; }
+      .contact a:hover { color: var(--accent); }
+
+      .section { margin-top: 18px; padding-top: 12px; border-top: 1px solid var(--divider); }
+      .section h2 {
+        margin: 0 0 7px;
+        color: var(--accent);
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        font-weight: 700;
+      }
+
+      .item { margin-bottom: 10px; }
+      .item-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      .item-title { font-size: 15px; font-weight: 700; color: var(--text); }
+      .item-meta { font-size: 12px; color: var(--muted); white-space: nowrap; }
+      .sub { color: var(--muted); font-size: 13px; margin-top: 1px; }
+      ul { margin: 7px 0 0 0; padding: 0; list-style: none; }
+      li { margin-bottom: 5px; font-size: 13px; position: relative; padding-left: 14px; }
+      li::before { content: "•"; position: absolute; left: 0; top: 0; color: var(--accent); }
+
+      .grid-two {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .resume-layout {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 24px;
+        margin-top: 6px;
+      }
+      .side-col .section:first-child,
+      .main-col .section:first-child {
+        margin-top: 0;
+      }
+      .skill-line { margin-bottom: 8px; font-size: 13px; }
+      .skill-line strong { color: var(--text); }
+
+      .small { font-size: 12px; color: var(--muted); }
+
+      @media (min-width: 860px) {
+        .grid-two { grid-template-columns: 1.35fr 1fr; }
+      }
+      @media (min-width: 768px) {
+        .resume-layout {
+          grid-template-columns: minmax(0, 1fr) 285px;
+          align-items: start;
+          column-gap: 26px;
+        }
+      }
+
+      @media print {
+        @page { size: A4; margin: 10mm; }
+        body { background: #fff; }
+        .wrap { max-width: none; padding: 0; }
+        .print-btn { display: none; }
+        .card {
+          margin: 0;
+          border: 0;
+          box-shadow: none;
+          border-radius: 0;
+          padding: 0;
+        }
+        h1 { font-size: 30px; }
+        .section { margin-top: 10px; padding-top: 8px; }
+        .item { break-inside: avoid; }
+        .resume-layout { grid-template-columns: 1fr 285px; column-gap: 24px; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <button class="print-btn" onclick="window.print()">Print / Save PDF</button>
+
+      <main class="card">
+        <header style="text-align:center;">
+          <h1>Peter (Pedram) Beigi, PhD</h1>
+          <div class="headline">
+            AV Researcher and ML Engineer
+          </div>
+          <div class="contact">
+            <span>(202) 258-6481</span>
+            <a href="mailto:beigi@gwu.edu">beigi@gwu.edu</a>
+            <a href="https://www.linkedin.com/in/pedrambeigi/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://github.com/xPEDRAMx" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://scholar.google.com/citations?user=n1b1vOMAAAAJ&hl=en&authuser=1" target="_blank" rel="noopener noreferrer">Scholar</a>
+            <a href="https://www.pbeigi.com" target="_blank" rel="noopener noreferrer">Personal Website</a>
+          </div>
+        </header>
+
+        <div class="resume-layout">
+          <div class="main-col">
+            <section class="section">
+              <h2>Professional Summary</h2>
+              <p class="small">
+                AV Researcher and ML Engineer specializing in autonomous systems, with strong expertise in machine learning,
+                robotics, and large-scale data-driven modeling. Experienced in developing perception, prediction, and decision-making
+                pipelines. Worked on multiple federal and private research projects to prototype and scale ML models in simulation and
+                real-world environments, leveraging large datasets to improve system performance.
+              </p>
+            </section>
+
+            <section class="section">
+              <h2>Work Experience</h2>
+
+              <div class="item">
+                <div class="item-header">
+                  <div class="item-title">Autonomous Vehicle &amp; Machine Learning Researcher</div>
+                  <div class="item-meta">Sep 2022 - Present</div>
+                </div>
+                <div class="sub">FHWA Turner-Fairbank Research Center - McLean, VA</div>
+                <ul>
+                  <li>Leading development of AI-based behavioral and motion prediction models for ADAS using deep learning and reinforcement learning frameworks, and integrating AV behavior models into large-scale microsimulation tools (SUMO, VISSIM).</li>
+                  <li>Developed and validated perception and planning algorithms using LiDAR, radar, sensor fusion, and video data for enhanced AV situational awareness and mixed-traffic simulation.</li>
+                  <li>Created computer vision pipelines (OpenCV, TensorFlow) to extract vehicle and pedestrian trajectories from real-world datasets for motion prediction and safety analysis.</li>
+                </ul>
+              </div>
+
+              <div class="item">
+                <div class="item-header">
+                  <div class="item-title">Graduate Researcher</div>
+                  <div class="item-meta">Sep 2021 - Present</div>
+                </div>
+                <div class="sub">The George Washington University - Washington, DC</div>
+                <ul>
+                  <li>Developed multi-agent reinforcement learning (MARL) frameworks for AV coordination and negotiation in dynamic traffic environments.</li>
+                  <li>Designed and implemented a real-time data streaming platform using Apache Kafka and PyTorch to process 5G-connected video feeds for trajectory prediction and event detection.</li>
+                  <li>Applied Bayesian optimization and genetic algorithms for driver and AV model calibration.</li>
+                  <li>Led creation of an integrated simulation-AI pipeline combining SUMO, CARLA, and Python APIs for closed-loop decision-making experiments.</li>
+                </ul>
+              </div>
+
+              <div class="item">
+                <div class="item-header">
+                  <div class="item-title">AV Researcher Intern</div>
+                  <div class="item-meta">Sep 2023 - Dec 2023</div>
+                </div>
+                <div class="sub">moment.ai - Washington, DC</div>
+                <ul>
+                  <li>Developed multi-modal deep learning time-series models (LSTM/GRU) integrating smartphone and AV sensor data to detect driver behavior and health incident risks, outperforming traditional methods by 9%.</li>
+                  <li>Developed a real-time NVIDIA Jetson/mobile driver monitoring system using AWS IoT pipelines and Alexa integration for in-vehicle alerts and control.</li>
+                </ul>
+              </div>
+
+              <div class="item">
+                <div class="item-header">
+                  <div class="item-title">Advanced Mobility Intern</div>
+                  <div class="item-meta">May 2025 - Aug 2025</div>
+                </div>
+                <div class="sub">Mead &amp; Hunt - Washington, DC &amp; Columbia, MD</div>
+                <ul>
+                  <li>Supported smart mobility and corridor simulation projects with WVDOT, leveraging machine learning for operational prediction and optimization.</li>
+                  <li>Assisted in network-wide signal optimization and traffic forecasting using Synchro and controller data for citywide coordination projects with BCDOT.</li>
+                </ul>
+              </div>
+
+              <div class="item">
+                <div class="item-header">
+                  <div class="item-title">Data Analyst Intern</div>
+                  <div class="item-meta">May 2024 - Aug 2024</div>
+                </div>
+                <div class="sub">Arcadis - Atlanta, GA</div>
+                <ul>
+                  <li>Conducted geospatial and statistical analyses (SQL, ArcGIS, Power BI) to evaluate infrastructure readiness for connected and automated vehicle deployment.</li>
+                  <li>Collaborated with GDOT on I-285 Express Lanes operational analysis and mitigation planning, contributing to project documentation and stakeholder reports.</li>
+                </ul>
+              </div>
+            </section>
+
+            <section class="section">
+              <h2>Selected Publications</h2>
+              <ul>
+                <li>"Diffusion Process-Based Model for Network Trajectory Propagation," IEEE Transactions on Intelligent Transportation Systems, 2025.</li>
+                <li>"Percolation-Based Cloud Computing Framework for Network Reliability Assessment," IEEE ICMI, 2025.</li>
+                <li>"Deep Reinforcement Learning Under Partial Observability..." under review at IEEE VTC.</li>
+                <li>"A Hybrid Genetic Algorithm and Reinforcement Learning Approach for Vulnerable Road User Modeling," under review at TRR.</li>
+                <li>"A Deep Reinforcement Learning Control to Explore Impact of V2X Connectivity on Intersection Performance," TRR, 2025.</li>
+                <li>"Third Generation Simulation Dataset," TRR, 2024.</li>
+              </ul>
+            </section>
+
+            <section class="section">
+              <h2>Relevant Coursework</h2>
+              <ul>
+                <li>UMD: CMSC 422 Machine Learning (audited)</li>
+                <li>UMD: CMSC 472 Deep Learning (audited)</li>
+                <li>GW: MAE 6292 Robotics Vision and Perception (4/4)</li>
+                <li>GW: SEAS 6520 Autonomous Systems and Robotics (audited)</li>
+                <li>Stanford: CS231n Deep Learning for Computer Vision (audited)</li>
+                <li>GW: CE 6609 Numerical Methods in Engineering (4/4)</li>
+                <li>GW: CE 6800 Data Science (4/4)</li>
+                <li>GW: ECE 6130 Big Data and Cloud Computing (4/4)</li>
+                <li>UMD: CMSC 426 Computer Vision (audited)</li>
+                <li>UMD: CMSC 828 Visual Learning and Recognition (audited)</li>
+              </ul>
+            </section>
+          </div>
+
+          <aside class="side-col">
+            <section class="section">
+              <h2>Education</h2>
+              <div class="item">
+                <div class="item-header">
+                  <div class="item-title">The George Washington University</div>
+                  <div class="item-meta">Sep 2021 - Dec 2026</div>
+                </div>
+                <div class="sub">PhD in Transportation Engineering (Autonomous Vehicle Systems &amp; AI) - GPA: 3.91/4.00</div>
+              </div>
+              <div class="item">
+                <div class="item-header">
+                  <div class="item-title">Sharif University of Technology</div>
+                  <div class="item-meta">Sep 2016 - Feb 2021</div>
+                </div>
+                <div class="sub">Bachelor of Science in Transportation Engineering - GPA: 3.80/4.00</div>
+              </div>
+            </section>
+
+            <section class="section">
+              <h2>Technical Skills</h2>
+              <div class="skill-line"><strong>Programming:</strong> Python, MATLAB, R, CUDA, Git</div>
+              <div class="skill-line"><strong>Libraries:</strong> PyTorch, TensorFlow, Scikit-learn, Keras, OpenCV, Ultralytics, RLlib, Gym, ROS</div>
+              <div class="skill-line"><strong>Big Data &amp; Cloud:</strong> AWS, Apache Kafka, Spark, Databricks</div>
+              <div class="skill-line"><strong>Tools:</strong> CARLA, Unity, SQL, Power BI, Tableau, SUMO, VISSIM, Synchro, SIDRA</div>
+            </section>
+
+            <section class="section">
+              <h2>Professional Certifications</h2>
+              <div class="small">
+                Social and Behavioral Research Certification<br />
+                Collaborative Institutional Training Initiative (CITI Program)<br />
+                Credential ID: 71300833<br />
+                Aug 2021 - Aug 2027
+              </div>
+            </section>
+
+            <section class="section">
+              <h2>Work Authorization</h2>
+              <div class="small">No sponsorship needed.</div>
+            </section>
+          </aside>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
