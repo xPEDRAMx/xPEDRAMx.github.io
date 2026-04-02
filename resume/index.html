@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Peter (Pedram) Beigi - Resume</title>
+    <title>Peter Beigi - Resume</title>
     <style>
       :root {
         --bg: #f1f5f9;
@@ -60,6 +60,9 @@
         font-size: 36px;
         letter-spacing: -0.02em;
       }
+      .name-suffix {
+        color: #94a3b8;
+      }
       .headline {
         margin-top: 5px;
         color: var(--muted);
@@ -108,6 +111,20 @@
         letter-spacing: 0.16em;
         font-weight: 700;
       }
+      .section h2.section-with-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 10px;
+      }
+      .section-head-meta {
+        font-size: 11px;
+        letter-spacing: 0;
+        text-transform: none;
+        color: var(--accent);
+        font-weight: 600;
+        white-space: nowrap;
+      }
 
       .item { margin-bottom: 10px; }
       .item-header {
@@ -143,6 +160,18 @@
       .item-company {
         grid-area: company;
       }
+      .company-line {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .company-logo {
+        width: 16px;
+        height: 16px;
+        object-fit: contain;
+        border-radius: 3px;
+        flex-shrink: 0;
+      }
       .sub { color: var(--muted); font-size: 13px; margin-top: 1px; }
       ul { margin: 7px 0 0 0; padding: 0; list-style: none; }
       li { margin-bottom: 5px; font-size: 13px; position: relative; padding-left: 14px; }
@@ -162,8 +191,11 @@
       .pub-title { color: var(--text); }
       .pub-venue { color: var(--muted); white-space: nowrap; text-align: right; font-size: 12px; }
       .coursework-list li {
-        font-size: 11px;
+        font-size: 10px;
         margin-bottom: 4px;
+      }
+      .work-experience li {
+        color: var(--muted);
       }
 
       .grid-two {
@@ -212,8 +244,33 @@
         }
         .print-btn { display: none; }
         .card { box-shadow: none; }
-        .item { break-inside: avoid; }
-        .resume-layout { grid-template-columns: 1fr 285px; column-gap: 24px; }
+        .item { break-inside: auto; page-break-inside: auto; }
+        .item-header { break-after: avoid; page-break-after: avoid; }
+        .item ul { break-inside: auto; page-break-inside: auto; }
+        .side-col .section,
+        .coursework-list,
+        .coursework-list li {
+          break-inside: auto;
+          page-break-inside: auto;
+        }
+        /* Print: avoid CSS grid fragmentation gaps by using float columns */
+        .resume-layout {
+          display: block;
+          margin-top: 6px;
+        }
+        .main-col {
+          float: left;
+          width: calc(100% - 309px);
+        }
+        .side-col {
+          float: right;
+          width: 285px;
+        }
+        .resume-layout::after {
+          content: "";
+          display: block;
+          clear: both;
+        }
       }
     </style>
   </head>
@@ -223,7 +280,7 @@
 
       <main class="card">
         <header style="text-align:center;">
-          <h1>Peter (Pedram) Beigi, PhD</h1>
+          <h1>Peter Beigi<span class="name-suffix">, PhD</span></h1>
           <div class="headline">
             AV Researcher and ML Engineer
           </div>
@@ -266,21 +323,23 @@
             <section class="section">
               <h2>Professional Summary</h2>
               <p class="small">
-                AV Researcher and ML Engineer specializing in autonomous systems, with strong expertise in machine learning,
-                robotics, and large-scale data-driven modeling. Experienced in developing perception, prediction, and decision-making
+                Autonomous Vehicle Researcher and Machine Learning Engineer specializing in autonomous systems, with strong expertise in machine learning,
+                robotics, and large-scale data-driven modeling. Experienced in developing perception, prediction, planning, and decision-making
                 pipelines. Worked on multiple federal and private research projects to prototype and scale ML models in simulation and
                 real-world environments, leveraging large datasets to improve system performance.
               </p>
             </section>
 
-            <section class="section">
+            <section class="section work-experience">
               <h2>Work Experience</h2>
 
               <div class="item">
                 <div class="item-header">
                   <div class="item-title">Autonomous Vehicle &amp; Machine Learning Researcher</div>
                   <div class="item-meta">Sep 2022 - Present</div>
-                  <div class="sub item-company">FHWA Turner-Fairbank Research Center</div>
+                  <div class="sub item-company">
+                    <span class="company-line"><img class="company-logo" src="./TFHRC.jpeg" alt="TFHRC logo" /><span>FHWA Turner-Fairbank Research Center</span></span>
+                  </div>
                   <div class="item-loc">McLean, VA</div>
                 </div>
                 <ul>
@@ -294,7 +353,9 @@
                 <div class="item-header">
                   <div class="item-title">Graduate Researcher</div>
                   <div class="item-meta">Sep 2021 - Present</div>
-                  <div class="sub item-company">The George Washington University</div>
+                  <div class="sub item-company">
+                    <span class="company-line"><img class="company-logo" src="./gw.png" alt="GW logo" /><span>The George Washington University</span></span>
+                  </div>
                   <div class="item-loc">Washington, DC</div>
                 </div>
                 <ul>
@@ -308,8 +369,10 @@
               <div class="item">
                 <div class="item-header">
                   <div class="item-title">Autonomous Vehicle Researcher Intern</div>
-                  <div class="item-meta">Sep 2023 - Dec 2023</div>
-                  <div class="sub item-company">moment.ai</div>
+                  <div class="item-meta">Sep 2024 - Dec 2024</div>
+                  <div class="sub item-company">
+                    <span class="company-line"><img class="company-logo" src="./momentai.jpeg" alt="moment.ai logo" /><span>moment.ai</span></span>
+                  </div>
                   <div class="item-loc">Washington, DC</div>
                 </div>
                 <ul>
@@ -320,14 +383,15 @@
 
               <div class="item">
                 <div class="item-header">
-                  <div class="item-title">Advanced Mobility Intern</div>
+                  <div class="item-title">Data Analyst Intern</div>
                   <div class="item-meta">May 2025 - Aug 2025</div>
-                  <div class="sub item-company">Mead &amp; Hunt</div>
+                  <div class="sub item-company">
+                    <span class="company-line"><img class="company-logo" src="./MeadHunt.jpg" alt="Mead & Hunt logo" /><span>Mead &amp; Hunt</span></span>
+                  </div>
                   <div class="item-loc">Washington, DC &amp; Columbia, MD</div>
                 </div>
                 <ul>
-                  <li>Supported smart mobility and corridor simulation projects with WVDOT, leveraging machine learning for operational prediction and optimization.</li>
-                  <li>Assisted in network-wide signal optimization and traffic forecasting using Synchro and controller data for citywide coordination projects with BCDOT.</li>
+                  <li>Built data-driven corridor simulation for WVDOT & BCDOT, and supporting operational scenario testing and optimization studies for smart mobility planning.</li>
                 </ul>
               </div>
 
@@ -335,18 +399,19 @@
                 <div class="item-header">
                   <div class="item-title">Data Analyst Intern</div>
                   <div class="item-meta">May 2024 - Aug 2024</div>
-                  <div class="sub item-company">Arcadis</div>
+                  <div class="sub item-company">
+                    <span class="company-line"><img class="company-logo" src="./arcadis.png" alt="Arcadis logo" /><span>Arcadis</span></span>
+                  </div>
                   <div class="item-loc">Atlanta, GA</div>
                 </div>
                 <ul>
-                  <li>Conducted geospatial and statistical analyses (SQL, ArcGIS, Power BI) to evaluate infrastructure readiness for connected and automated vehicle deployment.</li>
-                  <li>Collaborated with GDOT on I-285 Express Lanes operational analysis and mitigation planning, contributing to project documentation and stakeholder reports.</li>
+                  <li>Performed geospatial data analysis (MySQL, ArcGIS) and simulation-oriented corridor evaluation (VISSIM) for GDOT projects, translating large datasets into actionable operational and planning insights.</li>
                 </ul>
               </div>
             </section>
 
             <section class="section">
-              <h2>Selected Publications</h2>
+              <h2 class="section-with-meta"><span>Selected Publications</span><span class="section-head-meta">h-index: 6 / citation: 215</span></h2>
               <ul class="pub-list">
                 <li><div class="pub-row"><span class="pub-title">"Diffusion Process-Based Model for Network Trajectory Propagation"</span><span class="pub-venue">IEEE T-ITS (2025)</span></div></li>
                 <li><div class="pub-row"><span class="pub-title">"Percolation-Based Cloud Computing Framework for Network Reliability Assessment"</span><span class="pub-venue">IEEE ICMI (2025)</span></div></li>
@@ -363,9 +428,8 @@
           <aside class="side-col">
             <section class="section">
               <h2>Technical Skills</h2>
-              <div class="skill-line"><strong>Programming:</strong> Python, ROS, CUDA, SQL, Git</div>
-              <div class="skill-line"><strong>Libraries:</strong> PyTorch, TensorFlow, Scikit-learn, Keras, OpenCV, Ultralytics, RLlib, Gym</div>
-              <div class="skill-line"><strong>Big Data &amp; Cloud:</strong> AWS, Apache Kafka, Spark, Databricks</div>
+              <div class="skill-line"><strong>Programming:</strong> Python, ROS, MySQL, Git</div>
+              <div class="skill-line"><strong>Libraries:</strong> PyTorch, TensorFlow, Diffusers, Transformers, Scikit-learn, Keras, OpenCV, Ultralytics, RLlib, Gym</div>
               <div class="skill-line"><strong>Tools:</strong> CARLA, Unity, Power BI, Tableau, SUMO, VISSIM, Synchro, SIDRA</div>
             </section>
 
