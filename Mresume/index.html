@@ -1,0 +1,481 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Peter Beigi - ML Resume</title>
+    <style>
+      :root {
+        --bg: #f1f5f9;
+        --surface: #ffffff;
+        --text: #1e293b;
+        --muted: #475569;
+        --divider: #cbd5e1;
+        --accent: #f72585;
+      }
+
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.5;
+      }
+
+      .wrap {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px 20px 40px;
+      }
+
+      .print-btn {
+        position: sticky;
+        top: 14px;
+        margin-left: auto;
+        display: inline-block;
+        border: 1px solid #0f172a;
+        border-radius: 999px;
+        background: #0f172a;
+        color: #fff;
+        padding: 8px 13px;
+        font-size: 11px;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        font-weight: 600;
+        cursor: pointer;
+      }
+
+      .card {
+        margin-top: 12px;
+        background: var(--surface);
+        border: 1px solid var(--divider);
+        border-radius: 14px;
+        padding: 30px 34px 24px;
+        box-shadow: 0 10px 20px rgba(15, 23, 42, 0.08);
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 36px;
+        letter-spacing: -0.02em;
+      }
+      .name-suffix {
+        color: #94a3b8;
+      }
+      .headline {
+        margin-top: 5px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+      .contact {
+        margin-top: 12px;
+        font-size: 12px;
+        color: var(--muted);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 9px;
+      }
+      .contact a { color: var(--muted); text-decoration: none; }
+      .contact a:hover { color: var(--accent); }
+      .contact-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+      }
+      .contact-icon {
+        font-size: 12px;
+        line-height: 1;
+        width: 12px;
+        height: 12px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .contact-icon svg {
+        width: 12px;
+        height: 12px;
+        display: block;
+        fill: currentColor;
+      }
+
+      .section { margin-top: 18px; padding-top: 0; border-top: 0; }
+      .section h2 {
+        margin: 0 0 10px;
+        padding-bottom: 6px;
+        border-bottom: 1px solid var(--divider);
+        color: var(--accent);
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        font-weight: 700;
+      }
+      .section h2.section-with-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 10px;
+      }
+      .section-head-meta {
+        font-size: 11px;
+        letter-spacing: 0;
+        text-transform: none;
+        color: var(--accent);
+        font-weight: 600;
+        white-space: nowrap;
+      }
+
+      .item { margin-bottom: 10px; }
+      .item-header {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        grid-template-areas:
+          "title meta"
+          "company loc";
+        align-items: baseline;
+        gap: 10px;
+        row-gap: 2px;
+      }
+      .item-title {
+        grid-area: title;
+        font-size: 15px;
+        font-weight: 700;
+        color: var(--text);
+      }
+      .item-meta {
+        grid-area: meta;
+        font-size: 12px;
+        color: var(--muted);
+        white-space: nowrap;
+        justify-self: end;
+      }
+      .item-loc {
+        grid-area: loc;
+        font-size: 12px;
+        color: var(--muted);
+        white-space: nowrap;
+        justify-self: end;
+      }
+      .item-company {
+        grid-area: company;
+      }
+      .company-line {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .company-logo {
+        width: 16px;
+        height: 16px;
+        object-fit: contain;
+        border-radius: 3px;
+        flex-shrink: 0;
+      }
+      .sub { color: var(--muted); font-size: 13px; margin-top: 1px; }
+      ul { margin: 7px 0 0 0; padding: 0; list-style: none; }
+      li { margin-bottom: 5px; font-size: 13px; position: relative; padding-left: 14px; }
+      li::before { content: "•"; position: absolute; left: 0; top: 0; color: var(--accent); }
+      .pub-list { list-style: none; margin: 0; padding: 0; }
+      .pub-list li {
+        padding-left: 0;
+        margin-bottom: 8px;
+      }
+      .pub-list li::before { content: none; }
+      .pub-row {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 12px;
+        align-items: start;
+      }
+      .pub-title { color: var(--text); }
+      .pub-venue { color: var(--muted); white-space: nowrap; text-align: right; font-size: 12px; }
+      .coursework-list li {
+        font-size: 10px;
+        margin-bottom: 4px;
+      }
+      .work-experience li {
+        color: var(--muted);
+      }
+
+      .grid-two {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .resume-layout {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 24px;
+        margin-top: 6px;
+      }
+      .side-col .section:first-child,
+      .main-col .section:first-child {
+        margin-top: 0;
+      }
+      .skill-line { margin-bottom: 8px; font-size: 13px; }
+      .skill-line strong { color: var(--text); }
+
+      .small { font-size: 12px; color: var(--muted); }
+
+      @media (min-width: 860px) {
+        .grid-two { grid-template-columns: 1.35fr 1fr; }
+      }
+      @media (min-width: 768px) {
+        .resume-layout {
+          grid-template-columns: minmax(0, 1fr) 285px;
+          align-items: start;
+          column-gap: 26px;
+        }
+      }
+
+      @media print {
+        @page { size: auto; margin: 0; }
+        body {
+          background: var(--bg);
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+        .wrap {
+          max-width: 1200px;
+          width: 1200px;
+          padding: 20px;
+          margin: 0 auto;
+        }
+        .print-btn { display: none; }
+        .card { box-shadow: none; }
+        .item { break-inside: auto; page-break-inside: auto; }
+        .item-header { break-after: avoid; page-break-after: avoid; }
+        .item ul { break-inside: auto; page-break-inside: auto; }
+        .side-col .section,
+        .coursework-list,
+        .coursework-list li {
+          break-inside: auto;
+          page-break-inside: auto;
+        }
+        /* Print: avoid CSS grid fragmentation gaps by using float columns */
+        .resume-layout {
+          display: block;
+          margin-top: 6px;
+        }
+        .main-col {
+          float: left;
+          width: calc(100% - 309px);
+        }
+        .side-col {
+          float: right;
+          width: 285px;
+        }
+        .resume-layout::after {
+          content: "";
+          display: block;
+          clear: both;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <button class="print-btn" onclick="window.print()">Print / Save PDF</button>
+
+      <main class="card">
+        <header style="text-align:center;">
+          <h1>Peter Beigi<span class="name-suffix">, PhD</span></h1>
+          <div class="headline">
+            Machine Learning Engineer and Applied AI Researcher
+          </div>
+          <div class="contact">
+            <a class="contact-link" href="mailto:beigi@gwu.edu">
+              <span class="contact-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 5.5A2.5 2.5 0 0 1 4.5 3h15A2.5 2.5 0 0 1 22 5.5v13a2.5 2.5 0 0 1-2.5 2.5h-15A2.5 2.5 0 0 1 2 18.5v-13zm2.3-.5L12 10.6 19.7 5H4.3zM20 6.3l-7.4 5.4a1 1 0 0 1-1.2 0L4 6.3v12.2c0 .3.2.5.5.5h15c.3 0 .5-.2.5-.5V6.3z"/></svg>
+              </span>
+              <span>beigi@gwu.edu</span>
+            </a>
+            <a class="contact-link" href="https://www.linkedin.com/in/pedrambeigi/" target="_blank" rel="noopener noreferrer">
+              <span class="contact-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.58c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.56V9h3.56v11.45zM22 0H2C.9 0 0 .87 0 1.95v20.1C0 23.13.9 24 2 24h20c1.1 0 2-.87 2-1.95V1.95C24 .87 23.1 0 22 0z"/></svg>
+              </span>
+              <span>LinkedIn</span>
+            </a>
+            <a class="contact-link" href="https://github.com/xPEDRAMx" target="_blank" rel="noopener noreferrer">
+              <span class="contact-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.25c-3.34.73-4.04-1.42-4.04-1.42-.55-1.38-1.33-1.75-1.33-1.75-1.09-.74.08-.73.08-.73 1.2.09 1.83 1.22 1.83 1.22 1.07 1.82 2.8 1.3 3.48.99.11-.77.42-1.3.76-1.6-2.67-.3-5.48-1.32-5.48-5.9 0-1.3.47-2.37 1.24-3.2-.12-.3-.54-1.53.12-3.2 0 0 1.01-.32 3.3 1.22a11.58 11.58 0 0 1 6 0c2.28-1.54 3.29-1.22 3.29-1.22.66 1.67.24 2.9.12 3.2.77.83 1.24 1.9 1.24 3.2 0 4.59-2.82 5.6-5.5 5.9.43.37.82 1.1.82 2.22v3.29c0 .32.21.69.83.57A12 12 0 0 0 12 .5z"/></svg>
+              </span>
+              <span>GitHub</span>
+            </a>
+            <a class="contact-link" href="https://scholar.google.com/citations?user=n1b1vOMAAAAJ&hl=en&authuser=1" target="_blank" rel="noopener noreferrer">
+              <span class="contact-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 1 9l11 7 9-5.73V17h2V9L12 2zm0 12.3L4.74 9 12 4.4 19.26 9 12 14.3z"/><path d="M6 12.5V16c0 2.2 2.7 4 6 4s6-1.8 6-4v-3.5l-6 3.8-6-3.8z"/></svg>
+              </span>
+              <span>Scholar</span>
+            </a>
+            <a class="contact-link" href="https://www.pbeigi.com" target="_blank" rel="noopener noreferrer">
+              <span class="contact-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7h-2V6.41l-8.29 8.3-1.42-1.42L17.59 5H14V3z"/><path d="M5 5h6v2H7v10h10v-4h2v6H5V5z"/></svg>
+              </span>
+              <span>Personal Website</span>
+            </a>
+          </div>
+        </header>
+
+        <div class="resume-layout">
+          <div class="main-col">
+            <section class="section">
+              <h2>Professional Summary</h2>
+              <p class="small">
+                Machine Learning Engineer and Applied AI Researcher with expertise in deep learning, time-series modeling, computer vision, and data-driven optimization. Experienced in building end-to-end ML pipelines from data ingestion and feature engineering to model training, validation, and deployment-ready evaluation. Delivered research and production-oriented ML solutions using large-scale transportation and sensor datasets, with strong focus on robust modeling, interpretability, and measurable performance gains.
+              </p>
+            </section>
+
+            <section class="section work-experience">
+              <h2>Machine Learning Experience</h2>
+
+              <div class="item">
+                <div class="item-header">
+                  <div class="item-title">Machine Learning Engineer &amp; Applied AI Researcher</div>
+                  <div class="item-meta">Sep 2022 - Present</div>
+                  <div class="sub item-company">
+                    <span class="company-line"><img class="company-logo" src="./TFHRC.jpeg" alt="TFHRC logo" /><span>FHWA Turner-Fairbank Research Center</span></span>
+                  </div>
+                  <div class="item-loc">McLean, VA</div>
+                </div>
+                <ul>
+                  <li>Leading development of AI-based behavioral and motion prediction models for ADAS using deep learning and reinforcement learning frameworks, and integrating AV behavior models into large-scale microsimulation tools (SUMO, VISSIM).</li>
+                  <li>Developed and validated perception and planning algorithms using LiDAR, radar, sensor fusion, and video data for enhanced AV situational awareness and mixed-traffic simulation.</li>
+                  <li>Created computer vision pipelines (OpenCV, PyTorch) to extract vehicle and pedestrian trajectories from real-world datasets for motion prediction and safety analysis.</li>
+                </ul>
+              </div>
+
+              <div class="item">
+                <div class="item-header">
+                  <div class="item-title">Graduate Researcher</div>
+                  <div class="item-meta">Sep 2021 - Present</div>
+                  <div class="sub item-company">
+                    <span class="company-line"><img class="company-logo" src="./gw.png" alt="GW logo" /><span>The George Washington University</span></span>
+                  </div>
+                  <div class="item-loc">Washington, DC</div>
+                </div>
+                <ul>
+                  <li>Developed multi-agent reinforcement learning (MARL) frameworks for AV coordination and negotiation in dynamic traffic environments.</li>
+                  <li>Designed and implemented a real-time data streaming platform using Apache Kafka and PyTorch to process 5G-connected video feeds for trajectory prediction and event detection.</li>
+                  <li>Applied Bayesian optimization and genetic algorithms for driver and AV model calibration.</li>
+                  <li>Led creation of an integrated simulation-AI pipeline combining SUMO, CARLA, and Python APIs for closed-loop decision-making experiments.</li>
+                </ul>
+              </div>
+
+              <div class="item">
+                <div class="item-header">
+                  <div class="item-title">Machine Learning Research Intern</div>
+                  <div class="item-meta">Sep 2024 - Dec 2024</div>
+                  <div class="sub item-company">
+                    <span class="company-line"><img class="company-logo" src="./momentai.jpeg" alt="moment.ai logo" /><span>moment.ai</span></span>
+                  </div>
+                  <div class="item-loc">Washington, DC</div>
+                </div>
+                <ul>
+                  <li>Developed multi-modal deep learning time-series models (LSTM/GRU) integrating smartphone and AV sensor data to detect driver behavior and health incident risks, outperforming traditional methods by 9%.</li>
+                  <li>Developed a real-time NVIDIA Jetson/mobile driver monitoring system using AWS IoT pipelines and Alexa integration for in-vehicle alerts and control.</li>
+                </ul>
+              </div>
+
+              <div class="item">
+                <div class="item-header">
+                  <div class="item-title">Data Analyst Intern</div>
+                  <div class="item-meta">May 2025 - Aug 2025</div>
+                  <div class="sub item-company">
+                    <span class="company-line"><img class="company-logo" src="./MeadHunt.jpg" alt="Mead & Hunt logo" /><span>Mead &amp; Hunt</span></span>
+                  </div>
+                  <div class="item-loc">Washington, DC &amp; Columbia, MD</div>
+                </div>
+                <ul>
+                  <li>Built data-driven corridor simulation for WVDOT & BCDOT, and supporting operational scenario testing and optimization studies for smart mobility planning.</li>
+                </ul>
+              </div>
+
+              <div class="item">
+                <div class="item-header">
+                  <div class="item-title">Data Analyst Intern</div>
+                  <div class="item-meta">May 2024 - Aug 2024</div>
+                  <div class="sub item-company">
+                    <span class="company-line"><img class="company-logo" src="./arcadis.png" alt="Arcadis logo" /><span>Arcadis</span></span>
+                  </div>
+                  <div class="item-loc">Atlanta, GA</div>
+                </div>
+                <ul>
+                  <li>Performed geospatial data analysis (MySQL, ArcGIS) and simulation-oriented corridor evaluation (VISSIM) for GDOT projects, translating large datasets into actionable operational and planning insights.</li>
+                </ul>
+              </div>
+            </section>
+
+            <section class="section">
+              <h2 class="section-with-meta"><span>Selected Publications</span><span class="section-head-meta">h-index: 6 / citation: 215</span></h2>
+              <ul class="pub-list">
+                <li><div class="pub-row"><span class="pub-title">"Diffusion Process-Based Model for Network Trajectory Propagation"</span><span class="pub-venue">IEEE T-ITS (2025)</span></div></li>
+                <li><div class="pub-row"><span class="pub-title">"Percolation-Based Cloud Computing Framework for Network Reliability Assessment"</span><span class="pub-venue">IEEE ICMI (2025)</span></div></li>
+                <li><div class="pub-row"><span class="pub-title">"Motion Modeling in Unstructured Non-Lane-Based Traffic: A Comparative Study of Deterministic, Stochastic, and Multi-Agent Learning Approaches"</span><span class="pub-venue">IEEE ICRA (under review)</span></div></li>
+                <li><div class="pub-row"><span class="pub-title">"Deep Reinforcement Learning Under Partial Observability: Co-Simulation and Penetration-Aware Policy Learning for Traffic Control"</span><span class="pub-venue">IEEE VTC (under review)</span></div></li>
+                <li><div class="pub-row"><span class="pub-title">"A Hybrid Genetic Algorithm and Reinforcement Learning Approach for Vulnerable Road User Modeling"</span><span class="pub-venue">TRR (under review)</span></div></li>
+                <li><div class="pub-row"><span class="pub-title">"A Deep Reinforcement Learning Control to Explore Impact of V2X Connectivity on Intersection Performance"</span><span class="pub-venue">TRR (2025)</span></div></li>
+                <li><div class="pub-row"><span class="pub-title">"Third Generation Simulation Dataset"</span><span class="pub-venue">TRR (2024)</span></div></li>
+              </ul>
+            </section>
+
+          </div>
+
+          <aside class="side-col">
+            <section class="section">
+              <h2>Technical Skills</h2>
+              <div class="skill-line"><strong>Programming:</strong> Python, ROS, MySQL, Git</div>
+              <div class="skill-line"><strong>Libraries:</strong> PyTorch, TensorFlow, Diffusers, Transformers, Scikit-learn, Keras, OpenCV, Ultralytics, RLlib, Gym</div>
+              <div class="skill-line"><strong>Tools:</strong> CARLA, Unity, Power BI, Tableau, SUMO, VISSIM, Synchro, SIDRA</div>
+            </section>
+
+            <section class="section">
+              <h2>Education</h2>
+              <div class="item">
+                <div class="item-title">The George Washington University</div>
+                <div class="sub">Sep 2021 - Exp: Dec 2026</div>
+                <div class="sub">PhD in Transportation Engineering (AV Systems &amp; AI) - GPA: 3.91/4.00</div>
+              </div>
+              <div class="item">
+                <div class="item-title">Sharif University of Technology</div>
+                <div class="sub">Sep 2016 - Feb 2021</div>
+                <div class="sub">Bachelor of Science in Transportation Engineering - GPA: 3.80/4.00</div>
+              </div>
+            </section>
+
+            <section class="section">
+              <h2>Professional Certifications</h2>
+              <div class="small">
+                Social and Behavioral Research Certification<br />
+                Issued by: Collaborative Institutional Training Initiative (CITI Program)<br />
+                Credential ID: 71300833  |  Aug 2021 - Aug 2027
+              </div>
+            </section>
+
+            <section class="section">
+              <h2>Relevant Coursework</h2>
+              <ul class="coursework-list">
+                <li>UMD: CMSC 422 Machine Learning (audited)</li>
+                <li>UMD: CMSC 472 Deep Learning (audited)</li>
+                <li>GW: MAE 6292 Robotics Vision and Perception (4/4)</li>
+                <li>GW: SEAS 6520 Autonomous Systems and Robotics (audited)</li>
+                <li>Stanford: CS231n Deep Learning for Computer Vision (audited)</li>
+                <li>GW: CE 6609 Numerical Methods in Engineering (4/4)</li>
+                <li>GW: CE 6800 Data Science (4/4)</li>
+                <li>GW: ECE 6130 Big Data and Cloud Computing (4/4)</li>
+                <li>UMD: CMSC 426 Computer Vision (audited)</li>
+                <li>UMD: CMSC 828 Visual Learning and Recognition (audited)</li>
+              </ul>
+            </section>
+
+            <section class="section">
+              <h2>Work Authorization</h2>
+              <div class="small">No sponsorship needed.</div>
+            </section>
+          </aside>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
