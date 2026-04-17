@@ -118,3 +118,15 @@
     z-index:0 !important;
   }
 }
+
+/* Framer Motion sets initial x:-50 on the hero text column and y:20 + delay on .hero-cta-mobile-grid.
+   On hydration those run again, so LinkedIn/GitHub/Scholar/Download CV look misaligned briefly.
+   Lock the column + CTA wrapper to their final transform/opacity (nested Hi/title lines can still animate). */
+section[data-section="hero"] .hero-main-layout > .flex-1:first-child {
+  opacity: 1 !important;
+  transform: none !important;
+}
+section[data-section="hero"] .hero-cta-mobile-grid {
+  opacity: 1 !important;
+  transform: none !important;
+}
