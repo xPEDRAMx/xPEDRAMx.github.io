@@ -62,6 +62,7 @@
       }
       .name-suffix {
         color: #94a3b8;
+        font-size: 0.58em;
       }
       .headline {
         margin-top: 5px;
@@ -197,6 +198,14 @@
       .work-experience li {
         color: var(--muted);
       }
+      .work-experience li a {
+        color: var(--accent);
+        text-decoration: underline;
+        text-underline-offset: 2px;
+      }
+      .work-experience li a.link-note {
+        font-size: 0.93em;
+      }
 
       .grid-two {
         display: grid;
@@ -280,7 +289,7 @@
 
       <main class="card">
         <header style="text-align:center;">
-          <h1>Peter Beigi<span class="name-suffix">, PhD Candidate</span></h1>
+          <h1>Peter (Pedram) Beigi<span class="name-suffix">, PhD Candidate</span></h1>
           <div class="headline">
             AV Researcher and ML Engineer
           </div>
@@ -343,9 +352,9 @@
                   <div class="item-loc">McLean, VA</div>
                 </div>
                 <ul>
-                  <li>Leading development of AI-based behavioral and motion prediction models for ADAS using deep learning and reinforcement learning frameworks, and integrating AV behavior models into large-scale microsimulation tools (SUMO, VISSIM).</li>
-                  <li>Developed and validated perception and planning algorithms using LiDAR, radar, sensor fusion, and video data for enhanced AV situational awareness and mixed-traffic simulation.</li>
-                  <li>Created computer vision pipelines (OpenCV, TensorFlow) to extract vehicle and pedestrian trajectories from real-world datasets for motion prediction and safety analysis.</li>
+                  <li>Leading development of trajectory generation models for ADAS (using physics-based, DL-based and RL-based frameworks), and integrating AV behavior models into large-scale microsimulation (SUMO) tools (Repos are private for now).</li>
+                  <li>Developed and validated perception (sensor fusion, detection, segmentation) and planning (map generalization, localization) algorithms using LiDAR, radar, and video data for enhanced AV situational awareness and mixed-traffic simulation (<a href="https://github.com/ava-share" target="_blank" rel="noopener noreferrer">Some repos are public here</a>).</li>
+                  <li>Developed computer vision pipelines (OpenCV, PyTorch) to collect large-scale naturalistic traffic data (AV–human interactions), enabling trajectory extraction and motion prediction for AV research. (<a class="link-note" href="https://catalog.data.gov/dataset/third-generation-simulation-data-tgsim?from_hint=eyJxIjoiVEdTSU0iLCJzb3J0IjoicmVsZXZhbmNlIn0%3D" target="_blank" rel="noopener noreferrer">Data is published by USDOT</a>).</li>
                 </ul>
               </div>
 
@@ -359,9 +368,8 @@
                   <div class="item-loc">Washington, DC</div>
                 </div>
                 <ul>
-                  <li>Developed multi-agent reinforcement learning (MARL) frameworks for AV coordination and negotiation in dynamic traffic environments.</li>
+                  <li>Developed multi-agent reinforcement learning (MARL) frameworks for AV coordination and negotiation in dynamic traffic environments. Applied Bayesian optimization and genetic algorithms for driver and AV model calibration.</li>
                   <li>Designed and implemented a real-time data streaming platform using Apache Kafka and PyTorch to process 5G-connected video feeds for trajectory prediction and event detection.</li>
-                  <li>Applied Bayesian optimization and genetic algorithms for driver and AV model calibration.</li>
                   <li>Led creation of an integrated simulation-AI pipeline combining SUMO, CARLA, and Python APIs for closed-loop decision-making experiments.</li>
                 </ul>
               </div>
@@ -429,7 +437,7 @@
             <section class="section">
               <h2>Technical Skills</h2>
               <div class="skill-line"><strong>Programming:</strong> Python, ROS, MySQL, Git</div>
-              <div class="skill-line"><strong>Libraries:</strong> PyTorch, TensorFlow, Diffusers, Transformers, Scikit-learn, Keras, OpenCV, Ultralytics, RLlib, Gym</div>
+              <div class="skill-line"><strong>Libraries:</strong> PyTorch, Diffusers, Transformers, Scikit-learn, Keras, OpenCV, Ultralytics, RLlib, Gym</div>
               <div class="skill-line"><strong>Tools:</strong> CARLA, Unity, Power BI, Tableau, SUMO, VISSIM, Synchro, SIDRA</div>
             </section>
 
