@@ -64,10 +64,24 @@
         color: #94a3b8;
         font-size: 0.58em;
       }
-      .headline {
+      .headline-row {
         margin-top: 5px;
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+      }
+      .headline {
+        margin-top: 0;
         color: var(--muted);
         font-size: 14px;
+        justify-self: center;
+      }
+      .headline-left {
+        color: #94a3b8;
+        font-size: 11px;
+        justify-self: end;
+        text-align: right;
+        white-space: nowrap;
       }
       .contact {
         margin-top: 12px;
@@ -291,8 +305,10 @@
       <main class="card">
         <header style="text-align:center;">
           <h1>Peter (Pedram) Beigi<span class="name-suffix">, PhD Candidate</span></h1>
-          <div class="headline">
-            AV Researcher and ML Engineer
+          <div class="headline-row">
+            <div aria-hidden="true"></div>
+            <div class="headline">AV Researcher and ML Engineer</div>
+            <div class="headline-left">Based in Santa Clara, CA &amp; Washington DC,<br />Open to Relocate</div>
           </div>
           <div class="contact">
             <a class="contact-link" href="mailto:beigi@gwu.edu">
@@ -341,7 +357,7 @@
             </section>
 
             <section class="section work-experience">
-              <h2>Work Experience</h2>
+              <h2>Research Experience</h2>
 
               <div class="item">
                 <div class="item-header">
@@ -355,7 +371,7 @@
                 <ul>
                   <li>Leading development of trajectory generation models for ADAS (using physics-based, DL-based and RL-based frameworks), and integrating AV behavior models into large-scale microsimulation (SUMO) tools (<span class="link-note">Repos are private for now</span>).</li>
                   <li>Developed and validated perception (sensor fusion, detection, segmentation) and planning (map generalization, localization) algorithms using LiDAR, radar, and video data for enhanced AV situational awareness and mixed-traffic simulation (<a class="link-note" href="https://github.com/ava-share" target="_blank" rel="noopener noreferrer">Some repos are public here</a>).</li>
-                  <li>Developed computer vision pipelines (OpenCV, PyTorch) to collect large-scale naturalistic traffic data (AV–human interactions), enabling trajectory extraction and motion prediction for AV research (<a class="link-note" href="https://catalog.data.gov/dataset/third-generation-simulation-data-tgsim?from_hint=eyJxIjoiVEdTSU0iLCJzb3J0IjoicmVsZXZhbmNlIn0%3D" target="_blank" rel="noopener noreferrer">Data is published by USDOT</a>).</li>
+                  <li>Developed computer vision pipelines (OpenCV, PyTorch) to collect large-scale trajectory data (11,000+ vehicle-kilometers) for AV–human interactions, enabling trajectory extraction and motion prediction for AV research (<a class="link-note" href="https://catalog.data.gov/dataset/third-generation-simulation-data-tgsim?from_hint=eyJxIjoiVEdTSU0iLCJzb3J0IjoicmVsZXZhbmNlIn0%3D" target="_blank" rel="noopener noreferrer">Data is published by USDOT</a>).</li>
                 </ul>
               </div>
 
@@ -369,11 +385,16 @@
                   <div class="item-loc">Washington, DC</div>
                 </div>
                 <ul>
-                  <li>Developed multi-agent reinforcement learning (MARL) frameworks for AV coordination and negotiation in dynamic traffic environments. Applied Bayesian optimization and genetic algorithms for driver and AV model calibration.</li>
-                  <li>Designed and implemented a real-time data streaming platform using Apache Kafka and PyTorch to process 5G-connected video feeds for trajectory prediction and event detection.</li>
-                  <li>Led creation of an integrated simulation-AI pipeline combining SUMO, CARLA, and Python APIs for closed-loop decision-making experiments.</li>
+                  <li>Developed multi-agent reinforcement learning (MARL) frameworks for AV coordination and negotiation in dynamic partially observable environments using CTDE framework with multi-agent PPO actor-critic models. Applied Bayesian optimization and genetic algorithms for the models' calibration.</li>
+                  <li>Engineered model observability and traceability by developing Logsim DAGs to capture closed-loop metrics, improving experiment reproducibility for the autonomous stack.</li>
+                  <li>Led creation of an integrated simulation-AI pipeline combining SUMO, CARLA, and Python APIs for closed-loop decision-making experiments using real-time data (trajectory) streaming using twelve 5G-connected cameras.</li>
                 </ul>
               </div>
+
+            </section>
+
+            <section class="section work-experience">
+              <h2>Work Experience</h2>
 
               <div class="item">
                 <div class="item-header">
@@ -472,12 +493,13 @@
                 <li>UMD: CMSC 472 Deep Learning (audited)</li>
                 <li>GW: MAE 6292 Robotics Vision and Perception (4/4)</li>
                 <li>GW: SEAS 6520 Autonomous Systems and Robotics (audited)</li>
-                <li>Stanford: CS231n Deep Learning for Computer Vision (audited)</li>
+                <li>Stanford: CS231n DL for Computer Vision (Online)</li>
                 <li>GW: CE 6609 Numerical Methods in Engineering (4/4)</li>
                 <li>GW: CE 6800 Data Science (4/4)</li>
                 <li>GW: ECE 6130 Big Data and Cloud Computing (4/4)</li>
                 <li>UMD: CMSC 426 Computer Vision (audited)</li>
                 <li>UMD: CMSC 828 Visual Learning and Recognition (audited)</li>
+                <li>Google DeepMind: Introduction to RL (Online)</li>
               </ul>
             </section>
 
