@@ -196,6 +196,10 @@
         padding-left: 0;
         margin-bottom: 8px;
       }
+      .pub-section { margin-top: 15px; }
+      .pub-section h2 { margin-bottom: 8px; }
+      .pub-section .pub-row { line-height: 1.2; }
+      .pub-section .pub-list li { margin-bottom: 7px; }
       .pub-list li::before { content: none; }
       .pub-row {
         display: grid;
@@ -254,7 +258,7 @@
       }
 
       @media print {
-        @page { size: auto; margin: 0; }
+        @page { size: Letter portrait; margin: 3mm; }
         body {
           background: var(--bg);
           -webkit-print-color-adjust: exact;
@@ -262,7 +266,7 @@
         }
         .wrap {
           max-width: 1200px;
-          width: 1200px;
+          width: 1140px;
           padding: 20px;
           margin: 0 auto;
         }
@@ -308,7 +312,7 @@
           <div class="headline-row">
             <div aria-hidden="true"></div>
             <div class="headline">AV Researcher and ML Engineer</div>
-            <div class="headline-left">Based in Santa Clara, CA &amp; Washington DC,<br />Open to Relocate</div>
+            <div class="headline-left">Based in Santa Clara, CA &amp; Washington, DC<br />Open to Relocate</div>
           </div>
           <div class="contact">
             <a class="contact-link" href="mailto:beigi@gwu.edu">
@@ -440,8 +444,8 @@
               </div>
             </section>
 
-            <section class="section">
-              <h2 class="section-with-meta"><span>Selected Publications</span><span class="section-head-meta">h-index: 6 / citation: 215</span></h2>
+            <section class="section pub-section">
+              <h2 class="section-with-meta"><span>Selected Publications</span><span class="section-head-meta">h-index: 6 / citation: 219</span></h2>
               <ul class="pub-list">
                 <li><div class="pub-row"><span class="pub-title">"Diffusion Process-Based Model for Network Trajectory Propagation"</span><span class="pub-venue">IEEE T-ITS (2025)</span></div></li>
                 <li><div class="pub-row"><span class="pub-title">"Percolation-Based Cloud Computing Framework for Network Reliability Assessment"</span><span class="pub-venue">IEEE ICMI (2025)</span></div></li>
