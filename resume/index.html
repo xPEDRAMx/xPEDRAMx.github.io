@@ -258,11 +258,11 @@
       }
 
       @media print {
-        @page { size: Letter portrait; margin: 3mm; }
+        @page { size: 8.5in 12.4in; margin: 3mm; }
         body {
-          background: var(--bg);
-          -webkit-print-color-adjust: exact;
-          print-color-adjust: exact;
+          background: #fff;
+          -webkit-print-color-adjust: economy;
+          print-color-adjust: economy;
         }
         .wrap {
           max-width: 1200px;
@@ -271,7 +271,10 @@
           margin: 0 auto;
         }
         .print-btn { display: none; }
-        .card { box-shadow: none; }
+        .card {
+          background: #fff;
+          box-shadow: none;
+        }
         .item { break-inside: auto; page-break-inside: auto; }
         .item-header { break-after: avoid; page-break-after: avoid; }
         .item ul { break-inside: auto; page-break-inside: auto; }
@@ -304,7 +307,7 @@
   </head>
   <body>
     <div class="wrap">
-      <button class="print-btn" onclick="window.print()">Print / Save PDF</button>
+      <a class="print-btn" href="./resume.pdf" download="Pedram_Beigi_Resume.pdf">Download PDF</a>
 
       <main class="card">
         <header style="text-align:center;">
@@ -365,10 +368,24 @@
 
               <div class="item">
                 <div class="item-header">
+                  <div class="item-title">Visiting Scholar</div>
+                  <div class="item-meta">Expected: Sep 2026 - Dec 2026</div>
+                  <div class="sub item-company">
+                    <span class="company-line"><span>University of Illinois Urbana-Champaign</span></span>
+                  </div>
+                  <div class="item-loc">Urbana-Champaign, IL</div>
+                </div>
+                <ul>
+                  <li>Will work with <a class="link-note" href="https://scholar.google.com/citations?user=lW4PAysAAAAJ&amp;hl=en&amp;oi=ao" target="_blank" rel="noopener noreferrer">Prof. Talebpour</a> on developing advanced approaches including foundation models, vision-language architectures, diffusion models, imitation learning, and reinforcement learning, leveraging large-scale real-world driving data.</li>
+                </ul>
+              </div>
+
+              <div class="item">
+                <div class="item-header">
                   <div class="item-title">Autonomous Vehicle &amp; Machine Learning Researcher</div>
                   <div class="item-meta">Sep 2022 - Present</div>
                   <div class="sub item-company">
-                    <span class="company-line"><img class="company-logo" src="./TFHRC.jpeg" alt="TFHRC logo" /><span>FHWA Turner-Fairbank Research Center</span></span>
+                    <span class="company-line"><img class="company-logo" src="./TFHRC.jpeg" alt="TFHRC logo" /><span>FHWA Turner-Fairbank Research Center (Saxton Lab)</span></span>
                   </div>
                   <div class="item-loc">McLean, VA</div>
                 </div>
