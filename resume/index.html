@@ -229,8 +229,20 @@
         text-decoration: underline;
         text-underline-offset: 2px;
       }
-      .work-experience li .link-note {
+      .work-experience li .link-note,
+      .pub-list .link-note {
         font-size: 0.93em;
+        font-style: italic;
+      }
+      .pub-list .link-note {
+        color: var(--accent);
+        text-decoration: underline;
+        text-underline-offset: 2px;
+        white-space: nowrap;
+      }
+      .work-experience li .link-footnote {
+        font-size: 0.82em;
+        color: var(--muted);
         font-style: italic;
       }
 
@@ -264,6 +276,9 @@
           grid-template-columns: minmax(0, 1fr) 285px;
           align-items: start;
           column-gap: 26px;
+        }
+        .pub-section {
+          grid-column: 1 / -1;
         }
       }
 
@@ -317,6 +332,11 @@
           content: "";
           display: block;
           clear: both;
+        }
+        .pub-section {
+          clear: both;
+          width: 100%;
+          float: none;
         }
       }
     </style>
@@ -390,6 +410,8 @@
                 </div>
                 <ul>
                   <li>Working with <a class="link-note" href="https://scholar.google.com/citations?user=lW4PAysAAAAJ&amp;hl=en&amp;oi=ao" target="_blank" rel="noopener noreferrer">Prof. Talebpour</a> on developing advanced approaches including foundation models, vision-language architectures, diffusion models, imitation learning, and reinforcement learning, leveraging large-scale driving data.</li>
+                  <li>Developed a utility-guided residual multi-agent RL framework for decentralized spatial negotiation and trajectory generation in weakly structured traffic <a class="link-note" href="../publications/Utility_guided_Residual_MARL_for_Trajectory_Generation.pdf" target="_blank" rel="noopener noreferrer">[paper]</a> <a class="link-note" href="https://github.com/pebeigi/U-ResMARL" target="_blank" rel="noopener noreferrer">[code]</a>.</li>
+                  <li>Developed plan-conditioned diffusion world models for negotiation at unprotected conflict points <a class="link-note" href="../publications/Beigi_IROS_RoBoWoMo_MaC_Diffusion_World_Models_for_Negotiation.pdf" target="_blank" rel="noopener noreferrer">[paper]</a> <a class="link-note" href="https://github.com/pebeigi/MaC-PDWM" target="_blank" rel="noopener noreferrer">[code]</a>.</li>
                 </ul>
               </div>
 
@@ -403,9 +425,9 @@
                   <div class="item-loc">McLean, VA</div>
                 </div>
                 <ul>
-                  <li>Leading development of trajectory generation models for ADAS (using physics-based, DL-based and RL-based frameworks), and integrating AV behavior models into large-scale microsimulation (SUMO) tools (<span class="link-note">Repos are private for now</span>).</li>
-                  <li>Developed and validated perception (sensor fusion, detection, segmentation) and planning (map generalization, localization) algorithms using LiDAR, radar, and video data for enhanced AV situational awareness and mixed-traffic simulation (<a class="link-note" href="https://github.com/ava-share" target="_blank" rel="noopener noreferrer">Some repos are public here</a>).</li>
-                  <li> Built an end-to-end computer vision pipeline (Faster R-CNN, multi-camera MOT, BEV transformation, recursive state estimation, SIFT feature matching, and annotation/data processing) to extract trajectories and support motion prediction on 11,000+ vehicle-km of AV-human interaction data (<a class="link-note" href="https://catalog.data.gov/dataset/third-generation-simulation-data-tgsim?from_hint=eyJxIjoiVEdTSU0iLCJzb3J0IjoicmVsZXZhbmNlIn0%3D" target="_blank" rel="noopener noreferrer">Data is published by USDOT</a>).</li>
+                  <li>Leading development of trajectory generation models for ADAS (using physics-based, DL-based and RL-based frameworks), and integrating AV behavior models into large-scale microsimulation (SUMO) tools <a class="link-note" href="https://github.com/pebeigi/NGM" target="_blank" rel="noopener noreferrer">[code]</a>.</li>
+                  <li>Developed and validated perception (sensor fusion, detection, segmentation) and planning (map generalization, localization) algorithms using LiDAR, radar, and video data for enhanced AV situational awareness and mixed-traffic simulation <a class="link-note" href="https://github.com/ava-share" target="_blank" rel="noopener noreferrer">[code]</a>.</li>
+                  <li>Built an end-to-end computer vision pipeline (Faster R-CNN, multi-camera MOT, BEV transformation, recursive state estimation, SIFT feature matching, and annotation/data processing) to extract trajectories and support motion prediction on 11,000+ vehicle-km of AV-human interaction data <a class="link-note" href="https://github.com/ylinzhang12/TGSIM-trajectory-pipeline" target="_blank" rel="noopener noreferrer">[code]</a> <a class="link-note" href="https://catalog.data.gov/dataset/third-generation-simulation-data-tgsim?from_hint=eyJxIjoiVEdTSU0iLCJzb3J0IjoicmVsZXZhbmNlIn0%3D" target="_blank" rel="noopener noreferrer">[Data]</a> <span class="link-footnote">*published by USDOT</span>.</li>
                 </ul>
               </div>
 
@@ -419,7 +441,6 @@
                   <div class="item-loc">Washington, DC</div>
                 </div>
                 <ul>
-                  <li>Developed multi-agent reinforcement learning (MARL) frameworks for AV coordination and negotiation in dynamic partially observable environments using CTDE framework with multi-agent PPO actor-critic models. Applied Bayesian optimization and genetic algorithms for the models' calibration.</li>
                   <li>Engineered model observability and traceability by developing Logsim DAGs to capture closed-loop metrics, improving experiment reproducibility for the autonomous stack.</li>
                   <li>Led creation of an integrated simulation-AI pipeline combining SUMO, CARLA, and Python APIs for closed-loop decision-making experiments using real-time data (trajectory) streaming using twelve 5G-connected cameras.</li>
                 </ul>
@@ -445,19 +466,6 @@
                 </ul>
               </div>
 
-            </section>
-
-            <section class="section pub-section">
-              <h2 class="section-with-meta"><span>Selected Publications</span><span class="section-head-meta">h-index: 6 / citation: 230</span></h2>
-              <ul class="pub-list">
-                <li><div class="pub-row"><span class="pub-title">"Understanding the Interaction of Vehicles within an Intersection: An Optimal Control Approach with Differential Games"</span><span class="pub-venue">INFORMS (2026) <span class="pub-highlight">(Oral top 10%)</span></span></div></li>                <li><div class="pub-row"><span class="pub-title">"Diffusion Process-Based Model for Network Trajectory Propagation"</span><span class="pub-venue">IEEE T-ITS (2026)</span></div></li>
-                <li><div class="pub-row"><span class="pub-title">"Percolation-Based Cloud Computing Framework for Network Reliability Assessment"</span><span class="pub-venue">IEEE ICMI (2025)</span></div></li>
-                <li><div class="pub-row"><span class="pub-title">"Learning to Negotiate Chaos: Residual Multi-Agent Policies over Behavioral Priors"</span><span class="pub-venue">ICLR (under review)</span></div></li>
-                <li><div class="pub-row"><span class="pub-title">"Deep Reinforcement Learning Under Partial Observability: Co-Simulation and Penetration-Aware Policy Learning for Traffic Control"</span><span class="pub-venue">IEEE VTC Fall (2026)</span></div></li>
-                <li><div class="pub-row"><span class="pub-title">"A Hybrid Genetic Algorithm and Reinforcement Learning Approach for Vulnerable Road User Modeling"</span><span class="pub-venue">TRR (under review)</span></div></li>
-                <li><div class="pub-row"><span class="pub-title">"A Deep Reinforcement Learning Control to Explore Impact of V2X Connectivity on Intersection Performance"</span><span class="pub-venue">TRR (2025)</span></div></li>
-                <li><div class="pub-row"><span class="pub-title">"Third Generation Simulation Dataset"</span><span class="pub-venue">TRR (2024)</span></div></li>
-              </ul>
             </section>
 
           </div>
@@ -487,15 +495,6 @@
             </section>
 
             <section class="section">
-              <h2>Professional Certifications</h2>
-              <div class="small">
-                Social and Behavioral Research Certification<br />
-                Issued by: Collaborative Institutional Training Initiative (CITI Program)<br />
-                Credential ID: 71300833  |  Aug 2021 - Aug 2027
-              </div>
-            </section>
-
-            <section class="section">
               <h2>Relevant Coursework</h2>
               <ul class="coursework-list">
                 <li>UMD: CMSC 422 Machine Learning (audited)</li>
@@ -505,7 +504,6 @@
                 <li>GW: CE 6800 Data Science (4/4)</li>
                 <li>GW: ECE 6130 Big Data and Cloud Computing (4/4)</li>
                 <li>UMD: CMSC 426 Computer Vision (audited)</li>
-                <li>UMD: CMSC 828 Visual Learning and Recognition (audited)</li>
                 <li>Google DeepMind: Introduction to RL (Online)</li>
               </ul>
             </section>
@@ -514,10 +512,26 @@
               <h2>Work Authorization</h2>
               <div class="small work-auth-text">
                 <p><strong>No sponsorship required</strong> now or in the future.</p>
-                <p><strong>Available to start immediately.</strong> Available with 3 days' notice for positions in the DC and Bay Area. Available with 1 week's notice for positions in other locations.</p>
+                <p><strong>Available to start immediately.</strong> Available with 3 days' notice for positions in the DC and Bay Area. Available with 2 week's notice for positions in other locations.</p>
               </div>
             </section>
           </aside>
+
+          <section class="section pub-section">
+              <h2 class="section-with-meta"><span>Selected Publications</span><span class="section-head-meta">h-indesmalx: 6 / citation: 246</span></h2>
+              <ul class="pub-list">
+                <li><div class="pub-row"><span class="pub-title">"Decentralized Spatial Negotiation via Utility-guided Residual Multi-agent Reinforcement Learning for Trajectory Generation"</span><span class="pub-venue">ICLR (under review)</span></div></li>
+                <li><div class="pub-row"><span class="pub-title">"Motion as Communication: Plan-Conditioned Diffusion World Models for Negotiation at Unprotected Conflict Points" <a class="link-note" href="https://github.com/pebeigi/MaC-PDWM" target="_blank" rel="noopener noreferrer">[code]</a></span><span class="pub-venue">IROS 2026</span></div></li>
+                <li><div class="pub-row"><span class="pub-title">"Evaluating Behavioral Models in Autonomous Planning: System-Level Validation of Longitudinal Models Under Real-World Uncertainty"</span><span class="pub-venue">IROS 2026</span></div></li>
+                <li><div class="pub-row"><span class="pub-title">"Understanding the Interaction of Vehicles within an Intersection: An Optimal Control Approach with Differential Games"</span><span class="pub-venue">INFORMS (2026) <span class="pub-highlight">(Oral top 10%)</span></span></div></li>
+                <li><div class="pub-row"><span class="pub-title">"Deep Reinforcement Learning Under Partial Observability: Co-Simulation and Penetration-Aware Policy Learning for Traffic Control" <a class="link-note" href="https://github.com/pebeigi/PAPL-TSC" target="_blank" rel="noopener noreferrer">[code]</a></span><span class="pub-venue">IEEE VTC Fall (2026)</span></div></li>
+                <li><div class="pub-row"><span class="pub-title">"Diffusion Process-Based Model for Network Trajectory Propagation" <a class="link-note" href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=11366068" target="_blank" rel="noopener noreferrer">[pdf]</a></span><span class="pub-venue">IEEE T-ITS (2026)</span></div></li>
+                <li><div class="pub-row"><span class="pub-title">"Percolation-Based Cloud Computing Framework for Network Reliability Assessment" <a class="link-note" href="https://ieeexplore.ieee.org/document/11139838" target="_blank" rel="noopener noreferrer">[pdf]</a></span><span class="pub-venue">IEEE ICMI (2025)</span></div></li>
+                <li><div class="pub-row"><span class="pub-title">"A Hybrid Genetic Algorithm and Reinforcement Learning Approach for Vulnerable Road User Modeling" <a class="link-note" href="https://github.com/pebeigi/Paper_GA_RL_VRU_Calibration" target="_blank" rel="noopener noreferrer">[code]</a></span><span class="pub-venue">TRR (under review)</span></div></li>
+                <li><div class="pub-row"><span class="pub-title">"A Deep Reinforcement Learning Control to Explore Impact of V2X Connectivity on Intersection Performance" <a class="link-note" href="https://journals.sagepub.com/doi/10.1177/03611981251384965" target="_blank" rel="noopener noreferrer">[pdf]</a> <a class="link-note" href="https://github.com/wissamsleiman/Deep-Reinforcement-Learning-for-Traffic-Signal-Control" target="_blank" rel="noopener noreferrer">[code]</a></span><span class="pub-venue">TRR (2025)</span></div></li>
+                <li><div class="pub-row"><span class="pub-title">"Third Generation Simulation Dataset" <a class="link-note" href="https://journals.sagepub.com/doi/10.1177/03611981241257257" target="_blank" rel="noopener noreferrer">[pdf]</a> <a class="link-note" href="https://github.com/ylinzhang12/TGSIM-trajectory-pipeline" target="_blank" rel="noopener noreferrer">[code]</a></span><span class="pub-venue">TRR (2024)</span></div></li>
+              </ul>
+            </section>
         </div>
       </main>
     </div>
